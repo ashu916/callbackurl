@@ -3,14 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
-const postData = ''
+const postData = []
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
 // Callback URL endpoint
 app.post('/callback', (req, res) => {
   console.log('Callback received:', req.body);
-  postData = postData + req.body
+  postData.push(req.body)
   res.send('Callback received');
 });
 
